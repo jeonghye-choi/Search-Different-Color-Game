@@ -9,6 +9,7 @@
   "author": "jeonghye",
   "license": "ISC",
   "dependencies": {
+    "@types/node": "^7.0.7",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
     "react": "^17.0.2",
