@@ -1,9 +1,10 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  mode: 'production',
-  devtool: 'hidden-source-map',
+  mode: 'development',
+  devtool: 'eval',
   resolve: {
     extensions: ['.jsx', '.js', '.tsx', '.ts'],
   },
@@ -11,15 +12,34 @@ module.exports = {
     app: './client',
   },
   module: {
-    rules: [{ test: /\.tsx?$/, loader: 'awesome-typescript-loader' }],
+    rules: [
+      {
+        test: /\.tsx?$/,
+        loader: 'awesome-typescript-loader',
+        options: {
+          plugins: ['react-hot-loader'],
+        },
+      },
+    ],
   },
   plugins: [
     new webpack.LoaderOptionsPlugin({
       debug: true,
     }),
+    new HtmlWebpackPlugin({
+      template: './index.html',
+    }),
   ],
   output: {
     filename: '[name].js',
     path: path.join(__dirname, 'dist'),
+  },
+  devServer: {
+    static: {
+      directory: __dirname + '/dist',
+    },
+    hot: true,
+    host: 'localhost',
+    port: 3000,
   },
 };
