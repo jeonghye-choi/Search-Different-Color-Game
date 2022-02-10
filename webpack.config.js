@@ -20,8 +20,13 @@ module.exports = {
           plugins: ['react-hot-loader'],
         },
       },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
     ],
   },
+
   plugins: [
     new webpack.LoaderOptionsPlugin({
       debug: true,
@@ -36,7 +41,7 @@ module.exports = {
   },
   devServer: {
     static: {
-      directory: __dirname + '/dist',
+      directory: (__dirname, 'dist'),
     },
     hot: true,
     host: 'localhost',
