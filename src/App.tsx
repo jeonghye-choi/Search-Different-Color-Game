@@ -8,6 +8,11 @@ function App() {
   const [remainTime, setRemainTime] = useState(15);
   const [score, setScore] = useState(0);
 
+  function clickAnswerSquare() {
+    setStage((prevStage) => prevStage + 1);
+    setScore((prevScore) => prevScore + Math.pow(stage, 3) * remainTime);
+    setRemainTime(15);
+  }
   useEffect(() => {
     const timer = setInterval(() => {
       if (remainTime > 0) {
