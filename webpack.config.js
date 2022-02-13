@@ -9,7 +9,7 @@ module.exports = {
     extensions: ['.jsx', '.js', '.tsx', '.ts'],
   },
   entry: {
-    app: './client',
+    app: './src/client',
   },
   module: {
     rules: [
@@ -32,7 +32,7 @@ module.exports = {
       debug: true,
     }),
     new HtmlWebpackPlugin({
-      template: './index.html',
+      template: './public/index.html',
     }),
   ],
   output: {
