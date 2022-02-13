@@ -10,7 +10,7 @@ interface BoardWrap {
 }
 
 function BoardWrap(props: BoardWrap) {
-
+  const { stage, clickAnswerSquare, clickWrongAnswerSquare } = props;
   const [numberOfSquare, setNumberOfSquare] = useState(4);
   const [answerIndex, setAnswerIndex] = useState(
     Math.floor(Math.random() * numberOfSquare)
@@ -32,6 +32,9 @@ function BoardWrap(props: BoardWrap) {
     setDifferentColor(() => changeColorByDifference(color, difference));
   }, [color]);
 
+  React.useMemo(() => {
+    setAnswerIndex(Math.floor(Math.random() * numberOfSquare));
+  }, [numberOfSquare]);
 
   return (
     <div
@@ -46,6 +49,7 @@ function BoardWrap(props: BoardWrap) {
           <Board
             key={index}
             color={differentColor}
+            onClick={clickAnswerSquare}
           ></Board>
         ) : (
           <Board
