@@ -3,8 +3,8 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  mode: 'development',
-  devtool: 'eval',
+  mode: 'production',
+  devtool: 'hidden-source-map',
   resolve: {
     extensions: ['.jsx', '.js', '.tsx', '.ts'],
   },
