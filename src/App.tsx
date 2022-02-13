@@ -23,6 +23,7 @@ function App() {
       }
       if (remainTime <= 0) {
         clearInterval(timer);
+        alert('Game Over!' + '\n' + `스테이지: ${stage}, 점수: ${score}`);
         setStage(1);
         setRemainTime(15);
         setScore(0);
