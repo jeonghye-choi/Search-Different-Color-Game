@@ -13,6 +13,9 @@ function App() {
     setScore((prevScore) => prevScore + Math.pow(stage, 3) * remainTime);
     setRemainTime(15);
   }
+  function clickWrongAnswerSquare() {
+    setRemainTime((prevTime) => (prevTime - 3 >= 0 ? prevTime - 3 : 0));
+  }
   useEffect(() => {
     const timer = setInterval(() => {
       if (remainTime > 0) {

@@ -55,6 +55,7 @@ function BoardWrap(props: BoardWrap) {
           <Board
             key={index}
             color={color}
+            onClick={clickWrongAnswerSquare}
           ></Board>
         )
       )}
