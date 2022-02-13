@@ -23,6 +23,14 @@ function BoardWrap(props: BoardWrap) {
   );
 
   useEffect(() => {
+    if (stage === 1) {
+      setDifference(128);
+    } else {
+      setDifference((prevDifference) => {
+        if (prevDifference <= 1) return 1;
+        return prevDifference - 9;
+      });
+    }
     setNumberOfSquare(Math.pow(Math.round((stage + 0.5) / 2) + 1, 2));
 
     setColor(() => randomRGB());
