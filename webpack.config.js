@@ -1,23 +1,33 @@
+const isDevelopment = process.env.NODE_ENV !== 'production';
+const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const ReactRefreshTypeScript = require('react-refresh-typescript');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const webpack = require('webpack');
 
 module.exports = {
-  mode: 'production',
-  devtool: 'hidden-source-map',
+  mode: isDevelopment ? 'development' : 'production',
+  devtool: isDevelopment ? 'eval' : 'hidden-source-map',
   resolve: {
     extensions: ['.jsx', '.js', '.tsx', '.ts'],
   },
   entry: {
-    app: './src/client',
+    app: './src/client.tsx',
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: 'awesome-typescript-loader',
-        options: {
-          plugins: ['react-hot-loader'],
+        exclude: path.join(__dirname, 'node_modules'),
+        use: {
+          loader: require.resolve('ts-loader'),
+          options: {
+            getCustomTransformers: () => ({
+              befor: [isDevelopment && ReactRefreshTypeScript()].filter(
+                Boolean
+              ),
+            }),
+            transpileOnly: isDevelopment,
+          },
         },
       },
       {
@@ -28,9 +38,7 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.LoaderOptionsPlugin({
-      debug: true,
-    }),
+    isDevelopment && new ReactRefreshPlugin(),
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
@@ -40,11 +48,7 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
   },
   devServer: {
-    static: {
-      directory: (__dirname, 'dist'),
-    },
+    static: { directory: path.resolve(__dirname, 'dist') },
     hot: true,
-    host: 'localhost',
-    port: 3000,
   },
 };

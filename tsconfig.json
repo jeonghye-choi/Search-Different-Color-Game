@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
     "strict": true,
-    "lib": ["es5", "es2015", "dom"],
-    "jsx": "react",
-    "skipLibCheck": true
+    "lib": ["es2020", "dom"],
+    "jsx": "react"
   }
 }
