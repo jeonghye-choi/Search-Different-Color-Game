@@ -32,17 +32,13 @@ function BoardWrap(props: BoardWrap) {
       });
     }
     setNumberOfSquare(Math.pow(Math.round((stage + 0.5) / 2) + 1, 2));
-
+    setAnswerIndex(Math.floor(Math.random() * numberOfSquare));
     setColor(() => randomRGB());
   }, [stage]);
 
   React.useMemo(() => {
     setDifferentColor(() => changeColorByDifference(color, difference));
   }, [color]);
-
-  React.useMemo(() => {
-    setAnswerIndex(Math.floor(Math.random() * numberOfSquare));
-  }, [numberOfSquare]);
 
   return (
     <div
