@@ -10,20 +10,26 @@
   "author": "jeonghye",
   "license": "ISC",
   "dependencies": {
-    "@types/react": "^17.0.39",
-    "@types/react-dom": "^17.0.11",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "typescript": "^3.7.5"
+    "typescript": "^4.5.4"
   },
   "devDependencies": {
-    "awesome-typescript-loader": "^5.2.1",
-    "css-loader": "^6.6.0",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.4",
+    "@types/react": "^17.0.39",
+    "@types/react-dom": "^17.0.11",
+    "@types/webpack": "^5.28.0",
+    "@types/webpack-dev-server": "^4.7.2",
     "html-webpack-plugin": "^5.5.0",
-    "react-hot-loader": "^4.13.0",
-    "style-loader": "^3.3.1",
+    "react-refresh": "^0.11.0",
+    "react-refresh-typescript": "^2.0.3",
+    "ts-loader": "^9.2.6",
+    "ts-node": "^10.5.0",
+    "type-fest": "^2.11.2",
     "webpack": "^5.68.0",
     "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.7.4"
+    "webpack-dev-server": "^4.7.4",
+    "css-loader": "^6.6.0",
+    "style-loader": "^3.3.1"
   }
 }
