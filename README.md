@@ -31,6 +31,8 @@ Numble Challenge의 '상태관리 라이브러리를 사용하지 않고
 
    - `changeColorByDifference` hook function을 만들어 색상과 차이정도를 input으로 받고 정답색상을 output 한다.
 
+5. Github Issues를 활용해 프로젝트 관리
+
 <br/>
 
 ## Getting Started
